@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityBikes Locator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 5px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .icon {
+            margin-right: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .dashboard-item {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CityBikes Locator</h1>
+    </header>
+    <main>
+        <section id="dashboard">
+            <h2>Dashboard</h2>
+            <div class="dashboard">
+                <div class="dashboard-item">
+                    <h3>Bike Locations</h3>
+                    <p>View bike stations near you</p>
+                    <button>Find Stations</button>
+                </div>
+                <div class="dashboard-item">
+                    <h3>Search Options</h3>
+                    <p>Customize your search preferences</p>
+                    <button>Customize Search</button>
+                </div>
+                <div class="dashboard-item">
+                    <h3>User Instructions</h3>
+                    <p>Learn how to use CityBikes</p>
+                    <button>Read Instructions</button>
+                </div>
+            </div>
+        </section>
+        <section id="about">
+            <h2>About CityBikes</h2>
+            <p>CityBikes Locator is your one-stop solution for finding bikes in cities around the world. Whether you're a tourist exploring a new city or a local commuter, our platform helps you locate nearby bike stations quickly and easily.</p>
+            <p>With real-time data from the CityBikes API, we provide accurate information on bike availability, rental prices, and station locations. Say goodbye to long walks and confusing public transportation routes!</p>
+        </section>
+        <section id="features">
+            <h2>Key Features</h2>
+            <ul>
+                <li><span class="icon">&#128663;</span> Find bike stations near you</li>
+                <li><span class="icon">&#128205;</span> Get directions to the nearest station</li>
+                <li><span class="icon">&#128181;</span> Check bike availability and rental prices</li>
+                <li><span class="icon">&#128194;</span> User-friendly interface for easy navigation</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 CityBikes Locator</p>
+    </footer>
+</body>
+</html>
