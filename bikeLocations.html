@@ -4,6 +4,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CityBikes Locator</title>
     <link rel="stylesheet" href="cityBikes.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin="" defer></script>
+
     <script defer src="cityBikes.js"></script>
 </head>
 <body>
@@ -12,24 +20,9 @@
     </header>
     <main>
         <section id="dashboard">
-            <h2>Dashboard</h2>
-            <div class="dashboard">
-                <div class="dashboard-item">
-                    <h3>Bike Locations</h3>
-                    <p>View bike stations near you</p>
-                    <button><a href="bikeLocations.html">Find Stations</a></button>
-                </div>
-                <div class="dashboard-item">
-                    <h3>Search Options</h3>
-                    <p>Customize your search preferences</p>
-                    <button><a href="advancedSearch.html">Customize Search</a></button>
-                </div>
-                <div class="dashboard-item">
-                    <h3>User Instructions</h3>
-                    <p>Learn how to use CityBikes</p>
-                    <button><a href="userInstructions.html">Read Instructions</a></button>
-                </div>
-            </div>
+            <h2>Bike Locations (Current Pins Are Placeholders, will implement JS functionality soon)</h2>
+            <div id="map"></div>
+
         </section>
         <section id="about">
             <h2>About CityBikes</h2>
