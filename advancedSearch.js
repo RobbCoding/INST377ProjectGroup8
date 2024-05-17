@@ -1,3 +1,7 @@
+function bikeLocationsAPI() {
+  return fetch("http://api.citybik.es/v2/networks?fields=stations").then((res) => res.json());
+}
+
 function createMap() {
     var map = L.map('map').setView([39.71, -97.44], 4.5);
 
