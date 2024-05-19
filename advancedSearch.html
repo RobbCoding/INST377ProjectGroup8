@@ -1,46 +1,79 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Search</title>
+    <title>Advanced Search - CityBikes Locator</title>
     <link rel="stylesheet" href="cityBikes.css">
-
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-    crossorigin="" defer></script>
-
     <script defer src="advancedSearch.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>CityBikes Locator</h1>
+        <a href="citybikeshomepage.html" class="home-button">Home</a>
     </header>
     <main>
-        <section id="dashboard">
-            <h2>Advanced Search (Work In Progress)</h2>
+        <section id="search">
+            <h2>Advanced Search</h2>
+            <div>
+                <input type="text" id="locationInput" placeholder="Enter a city or address">
+                <button onclick="searchLocation()">Search</button>
+            </div>
             <div id="map"></div>
-
-        </section>
-        <section id="about">
-            <h2>About CityBikes</h2>
-            <p>CityBikes Locator is your one-stop solution for finding bikes in cities around the world. Whether you're a tourist exploring a new city or a local commuter, our platform helps you locate nearby bike stations quickly and easily.</p>
-            <p>With real-time data from the CityBikes API, we provide accurate information on bike availability, rental prices, and station locations. Say goodbye to long walks and confusing public transportation routes!</p>
-        </section>
-        <section id="features">
-            <h2>Key Features</h2>
-            <ul>
-                <li><span class="icon">&#128663;</span> Find bike stations near you</li>
-                <li><span class="icon">&#128205;</span> Get directions to the nearest station</li>
-                <li><span class="icon">&#128181;</span> Check bike availability and rental prices</li>
-                <li><span class="icon">&#128194;</span> User-friendly interface for easy navigation</li>
-            </ul>
         </section>
     </main>
     <footer>
         <p>&copy; 2024 CityBikes Locator</p>
     </footer>
+
+    <script>
+        let map;
+        let markers = [];
+        const locations = [
+            { lat: 40.712776, lng: -74.005974, title: 'New York' },
+            { lat: 34.052235, lng: -118.243683, title: 'Los Angeles' },
+            { lat: 41.878113, lng: -87.629799, title: 'Chicago' },
+            // Add more locations as needed
+        ];
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 37.774929, lng: -122.419418 },
+                zoom: 5
+            });
+
+            // Add markers to the map
+            locations.forEach(location => {
+                let marker = new google.maps.Marker({
+                    position: { lat: location.lat, lng: location.lng },
+                    map: map,
+                    title: location.title
+                });
+                markers.push(marker);
+            });
+        }
+
+        function searchLocation() {
+            const input = document.getElementById('locationInput').value;
+            const geocoder = new google.maps.Geocoder();
+
+            geocoder.geocode({ 'address': input }, function(results, status) {
+                if (status === 'OK') {
+                    map.setCenter(results[0].geometry.location);
+                    map.setZoom(10);  // Adjust zoom level as needed
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
+    </script>
 </body>
 </html>
+
