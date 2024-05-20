@@ -3,30 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Search - CityBikes Locator</title>
+    <title>CityBikes API Features</title>
     <link rel="stylesheet" href="cityBikes.css">
-    <script defer src="advancedSearch.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
-    <style>
-        #map {
-            height: 500px;
-            width: 100%;
-        }
-    </style>
 </head>
 <body>
     <header>
-        <h1>CityBikes Locator</h1>
-        <a href="citybikeshomepage.html" class="home-button">Home</a>
+        <h1>CityBikes API Features</h1>
+        <nav>
+            <a href="citybikeshomepage.html" class="home-button">Home</a>
+        </nav>
     </header>
     <main>
-        <section id="search">
-            <h2>Advanced Search</h2>
-            <div>
-                <input type="text" id="locationInput" placeholder="Enter a city or address">
-                <button onclick="searchLocation()">Search</button>
-            </div>
-            <div id="map"></div>
+        <section id="us-cities">
+            <h2>US Cities</h2>
+            <ul id="us-cities-list"></ul>
+        </section>
+        <section id="non-us-cities">
+            <h2>Non-US Cities</h2>
+            <ul id="non-us-cities-list"></ul>
+        </section>
+        <section id="network-info">
+            <h2>Network Information</h2>
+            <div id="network-info-container"></div>
         </section>
     </main>
     <footer>
@@ -34,46 +32,47 @@
     </footer>
 
     <script>
-        let map;
-        let markers = [];
-        const locations = [
-            { lat: 40.712776, lng: -74.005974, title: 'New York' },
-            { lat: 34.052235, lng: -118.243683, title: 'Los Angeles' },
-            { lat: 41.878113, lng: -87.629799, title: 'Chicago' },
-            // Add more locations as needed
-        ];
+        fetch('https://api.citybik.es/v2/networks')
+          .then(response => response.json())
+          .then(data => {
+            const usCities = data.networks.filter(network => network.location.country === 'US');
+            const nonUsCities = data.networks.filter(network => network.location.country !== 'US');
 
-        function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: { lat: 37.774929, lng: -122.419418 },
-                zoom: 5
+            const usCitiesList = document.getElementById('us-cities-list');
+            usCities.forEach(city => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${city.location.city}, ${city.location.country}`;
+                usCitiesList.appendChild(listItem);
             });
 
-            // Add markers to the map
-            locations.forEach(location => {
-                let marker = new google.maps.Marker({
-                    position: { lat: location.lat, lng: location.lng },
-                    map: map,
-                    title: location.title
-                });
-                markers.push(marker);
+            const nonUsCitiesList = document.getElementById('non-us-cities-list');
+            nonUsCities.forEach(city => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${city.location.city}, ${city.location.country}`;
+                nonUsCitiesList.appendChild(listItem);
             });
-        }
+          })
+          .catch(error => {
+            console.error('Error fetching cities data:', error);
+          });
 
-        function searchLocation() {
-            const input = document.getElementById('locationInput').value;
-            const geocoder = new google.maps.Geocoder();
-
-            geocoder.geocode({ 'address': input }, function(results, status) {
-                if (status === 'OK') {
-                    map.setCenter(results[0].geometry.location);
-                    map.setZoom(10);  // Adjust zoom level as needed
-                } else {
-                    alert('Geocode was not successful for the following reason: ' + status);
-                }
-            });
-        }
+        fetch('https://api.citybik.es/v2/networks/bikemi')
+          .then(response => response.json())
+          .then(data => {
+            const networkInfoContainer = document.getElementById('network-info-container');
+            const networkName = document.createElement('p');
+            networkName.textContent = `Network Name: ${data.network.name}`;
+            const networkLocation = document.createElement('p');
+            networkLocation.textContent = `Location: ${data.network.location.city}, ${data.network.location.country}`;
+            const networkDescription = document.createElement('p');
+            networkDescription.textContent = `Description: ${data.network.description}`;
+            networkInfoContainer.appendChild(networkName);
+            networkInfoContainer.appendChild(networkLocation);
+            networkInfoContainer.appendChild(networkDescription);
+          })
+          .catch(error => {
+            console.error('Error fetching network data:', error);
+          });
     </script>
 </body>
 </html>
-
