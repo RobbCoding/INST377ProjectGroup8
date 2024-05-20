@@ -42,5 +42,7 @@ Desktop Browsers: Additional browsers not mentioned previously, including Firefo
 
 
 # Link to Developer Manual
-https://github.com/eskerda/pybikes/blob/master/README.md
+https://github.com/eskerda/pybikes/blob/master/README.md      
+
+https://github.com/RobbCoding/INST377ProjectGroup8/blob/main/README.md 
 
