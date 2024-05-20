@@ -1,8 +1,8 @@
 # INST377ProjectGroup8
-# Title: City Bike Locator
+# City Bike Locator
 
 
-# Description of your project
+# Project Description
 
 Over the years, cities have had bike location issues. These issues mostly arise among travelers travelling interstate or nationally. However, with the increasing popularity of bike systems being used nowadays, the need for an effective userfriendly bike find locator is neccesary. So, this program is designed to mitigate this issue by providing users with real-time bike information, availability, location, and other enhancing trackers. 
 
@@ -10,7 +10,8 @@ This project addreeses the problem of people having bike location issues as ment
 miscommunication by providing users with easy transport via bike. We'll acheive this goal by performing the following specifications:
 This Project will contain a Readme, Developer Manual, Front and Backend technologies providing soultions to the city bike location problem.
 
-#Target Population
+# Target Population
+
 The general public cares the most about this problem, as they are the ones who are being
 affected by this problem. Thousands of people each day travel to new cities whether it is for a
 vacation, work, or personal reasons. When in a new city, it can be hard to figure out how to go
@@ -19,7 +20,8 @@ will also care about the problem because they have a stake in the project. Addit
 stakeholders will likely already be part of the transportation industry, so they will want to improve
 upon its current state.
 
-#System Description
+# System Description
+
 The information problem at hand is not knowing how to get to the closest bike which is used as
 a means of easy transportation. Our system solves this issue all in one application. It will solve
 the lack of knowledge among the public by showing users where they currently are, what
@@ -34,14 +36,19 @@ large cities when they are not familiar with the layout.
 
 
 # Description of target browsers 
-iOS: Latest version of Safari
-Android: Latest version of Chrome
-Desktop Browsers: Additional browsers not mentioned previously, including Firefox and more.
 
+For this project, we'll be using the internet as our ideal target browser because it it's reliable for a bike locator project due to its extensive connectivity, accessibility, and data integration capabilities. Firstly, the internet's massive reach makes it easier for our locator program to grow an audience nationally and globally. This accessibility is crucial for our project because we rely on real time and user connectivity. 
+
+Secondly, the internet has GPS tracking, geolocation services, and mapping applications for providing real-time location data. These are enhance functionalities for the bike locator, offering precise information to users.
+
+Lastly, the internet supports data sharing and community collaboration which is neceesary for the bike locator. For instance, users can report stolen bikes, sightings, and locations instantly online on a daily basis. This collective input significantly increases the chances of recovering lost or stolen bikes making our program more reliable.
+
+Overall, the internet's vital functionalities such as it's extensive connectivity, technological integration, and user collaboration capabilities are top quality features, making it an excellent platform for a bike locator project, ensuring efficiency, accuracy, and widespread participation within our program.
 
 
 
 # Link to Developer Manual
+
 https://github.com/eskerda/pybikes/blob/master/README.md      
 
 https://github.com/RobbCoding/INST377ProjectGroup8/blob/main/README.md 
