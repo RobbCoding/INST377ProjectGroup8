@@ -24,6 +24,17 @@
             <h2>Bike Locations</h2>
             <div id="map"></div>
 
+            <h2>Would You Like To Add A Bike Location?</h2>
+
+            <form name="addForm" action="" method="GET">
+            <h4> Please input the latitude and longitude as accurately as possible: </h4>
+            <label for="inputbox1">Latitude:</label>
+            <input id = "lat" type="text" name="inputbox1" value=""><br>
+            <label for="inputbox2">Longitude:</label>
+            <input id = "long" type="text" name="inputbox2" value=""><br>
+            <input type="button" name="button" value="Add Bike Location" onClick="addBikes(this.form)">
+            </form>
+
         </section>
         <section id="about">
             <h2>About CityBikes</h2>

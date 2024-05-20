@@ -21,4 +21,15 @@ async function createMap() {
 
 }
 
+function addBikes() {
+
+  var inputValue1 = document.getElementById(lat);
+  var inputValue2 = document.getElementById(long);
+
+  console.log(inputValue2)
+  console.log(inputValue1)
+  var marker = L.marker([inputValue1, inputValue2]).addTo(map);
+
+}
+
 window.onload = createMap;
