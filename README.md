@@ -16,9 +16,13 @@ This Project will contain a Readme, Developer Manual, Fron and Backend technolog
 
 
 # Description of target browsers (iOS? Android? Which ones?)
-
+iOS: Latest version of Safari
+Android: Latest version of Chrome
+Desktop Browsers: Additional browsers not mentioned previously, including Firefox and more.
 
 
 
 
 # Link to Developer Manual
+https://github.com/eskerda/pybikes/blob/master/README.md
+
