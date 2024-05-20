@@ -4,7 +4,6 @@ function bikeLocationsAPI() {
 
 async function createMap() {
     bikeLocations = await bikeLocationsAPI();
-    console.log(bikeLocations);
 
     var map = L.map('map').setView([39.71, -97.44], 4.5);
 
@@ -13,8 +12,11 @@ async function createMap() {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
-    bikeLocations.forEach((bike) => {
-      var marker = L.marker([bikeLocations.latitude, bikeLocations.longitude]).addTo(map);
+    console.log(bikeLocations.networks);
+
+    bikeLocations.networks.forEach((bike) => {
+      console.log(bike);
+      var marker = L.marker([bike.location.latitude, bike.location.longitude]).addTo(map);
     });
 
 }
