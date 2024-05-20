@@ -47,9 +47,7 @@ Overall, the internet's vital functionalities such as it's extensive connectivit
 
 
 
-# Link to Developer Manual
-
-https://github.com/eskerda/pybikes/blob/master/README.md      
+# Link to Developer Manual   
 
 https://github.com/RobbCoding/INST377ProjectGroup8/blob/main/README.md 
 
